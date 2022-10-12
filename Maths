@@ -1,1 +1,30 @@
+Ques..For an integer N find the number of trailing zeroes in N!.
+
+Example 1:
+
+Input:
+N = 5
+Output:
+1
+Explanation:
+5! = 120 so the number of trailing zero is 1
+
+#include <iostream>
+#include <bits/stdc++.h>
+using namespace std>
+int trailingZeros(int n){
+   int re=0;
+   for(int i=5;i<=n;i*5){//every 5th(from 0 to n to find factoral) element in the factorial digits create Zeros;
+    re=re+n/i;//  [n/5]+[n/25]+[n/125]......upto n
+   }
+   return re;
+}
+int main() {
+   int n;
+   cout<<"Enter the number";
+   cin>>n;
+   int res=trailingZeros(n);
+   cout<<res;
+}
+this program takes log(n) Complexity
 
