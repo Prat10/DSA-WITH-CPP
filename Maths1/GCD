@@ -7,7 +7,7 @@ Input: A = 3, B = 6
 Output: 3
 Explanation: GCD of 3 and 6 is 3
 
-solution:for O(n) time complexity
+solution:for O(min(A,B)) time complexity
 int gcd(int A, int B) 
 	{ 
 	    // code here
