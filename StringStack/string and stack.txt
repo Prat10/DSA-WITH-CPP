@@ -1,0 +1,60 @@
+Topic:-String and stack
+Ques:An encoded string (s) is given, and the task is to decode it.
+The encoding pattern is that the occurrence of the string is given
+at the starting of the string and each string is enclosed by square brackets.
+
+Example:-1)Input: s = 1[b]
+Output: b
+Explaination: 'b' is present only one time.
+2)Input: s = 3[b2[ca]]
+Output: bcacabcacabcaca
+Explaination: 2[ca] means 'ca' is repeated 
+twice which is 'caca' which concatenated with 
+'b' becomes 'bcaca'. This string repeated 
+thrice becomes the output.
+
+
+Solution:-
+   string decodedString(string s){
+     // code here 
+     string ans="";
+     stack<char>st;
+     for(int i=0;i<s.size();i++){
+         if(s[i]==']'){
+             while(st.size()>0 &&st.top()!='['){
+                 ans=st.top()+ans;
+                 st.pop();
+             }
+         if(st.size()!=0)
+           st.pop();
+         
+         //extract digit
+       string number="";
+       while(st.size()>0 && st.top()>='0' && st.top()<='9'){
+           number=st.top()+number;
+           st.pop();
+       }
+       
+       //concate the string
+       int digit=stoi(number);
+       string temp=ans;
+       for(int i=0;i<digit-1;i++){
+           ans+=temp;
+       }
+         //push all to stack
+         for(int i=0;i<ans.size();i++)
+             st.push(ans[i]);
+             
+             //reset ans
+             ans="";
+     }
+       //until we dont get ']' closing bracket we push in the stack
+         else
+         st.push(s[i]);
+     }
+       while(st.size()>0){
+           ans=st.top()+ans;
+           st.pop();
+       }
+       return ans;
+    }
