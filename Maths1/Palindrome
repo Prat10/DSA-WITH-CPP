@@ -1,1 +1,24 @@
+Given an integer, check whether it is a palindrome or not.
 
+Example 1:
+
+Input: n = 55555
+Output: Yes
+
+Solution:
+ 	string is_palindrome(int n)
+		{
+		    int rem=0;
+		    int n1=n;
+		    int num;
+		    // Code here.
+		    while(n!=0){//121
+		      num=n%10;                   //In this line we short the number by 1 digit each time 
+		      rem=rem*10+num;             //we take a rem as variable from 0 to multiple with 10(every iteration) + num to get the number from back 
+		      n=n/10;                     //we get new divisior to check again a while loop
+		    }
+		    if(rem==n1){
+		        return "Yes";             //once rem == n1 which is a original number ,if both equals it print "Yes"
+		    }
+		    else return "No";
+		}
