@@ -1,1 +1,24 @@
+Given two positive integers A and B, find GCD of A and B.
+
+
+Example 1:
+
+Input: A = 3, B = 6
+Output: 3
+Explanation: GCD of 3 and 6 is 3
+
+solution:for O(n) time complexity
+int gcd(int A, int B) 
+	{ 
+	    // code here
+	    int res=min(A,B); //it will get the min number from two it is a built-in funciton in c++
+	    while(res>0){    //from this we check until zero which is greatest comman divisor
+	        if(A%res==0 && B%res==0){
+	            break;   //once we find the max we break the loop
+	        }
+	        res--;
+	    }
+	    return res;   //return the result
+	      
+	} 
 
