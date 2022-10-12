@@ -1,0 +1,50 @@
+Given a 32 bit number X, reverse its binary form and print the answer in decimal.
+
+Example 1:
+
+Input:
+X = 1
+Output:
+2147483648 
+Explanation:
+Binary of 1 in 32 bits representation-
+00000000000000000000000000000001
+Reversing the binary form we get, 
+10000000000000000000000000000000,
+whose decimal value is 2147483648.
+Example 2:
+
+Input:
+X = 5
+Output:
+2684354560 
+Explanation:
+Binary of 5 in 32 bits representation-
+00000000000000000000000000000101
+Reversing the binary form we get, 
+10100000000000000000000000000000,
+whose decimal value is 2684354560.
+
+Expected Time Complexity: O(log(X))
+Expected Auxiliary Space: O(1)
+
+Constraints:
+0 <= X < 232
+
+solution:
+  long long reversedBits(long long X) {
+   
+     if(X>=INT_MAX){ //INT_MAX means highest value of integer
+        return X;
+    }
+    int i=31;
+	long long ans=0;
+	while(X!=0){
+		int bit=X&1;//x=1 and 1 so 1&1=1,bit=1 (starting)
+		ans=bit*pow(2,i)+ans; //=1*2^31+0=2147483648
+		X=X>>1;//1>>1 means add 1 '0' in left side 
+                //and remove one bit in right so x will become 0;
+		i--;
+	}
+     return ans;
+    }
