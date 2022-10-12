@@ -22,3 +22,5 @@ int gcd(int A, int B)
 	      
 	} 
 
+     Eucliean Algorithm:-
+      
