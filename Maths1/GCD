@@ -38,4 +38,28 @@ int gcd(int A, int B)
 	  gcd(B,A%B);
 	      
 	} 
+	
+	Question LCM:-Given two numbers A and B. The task is to find out their LCM and GCD.
+           solution:
+	   Input:
+		A = 5 , B = 10
+		Output:
+		10 5
+		Explanation:
+		LCM of 5 and 10 is 10, while
+		thier GCD is 5
+     sol:
+     vector<long long> lcmAndGcd(long long A , long long B) {
+       vector <long long> v;   //this vector is used to store lcm and gcd
+       long long gcd=__gcd(A,B);  //__gcd is inbuilt function which takes log(n) conplexity as well
+       long long lcm=A*B/gcd;  //to calculate lcm=A*B/gcd(A,B);
+       v.push_back(lcm);
+       v.push_back(gcd);
+       return v;
+    }
+
+
+
+
+
       
