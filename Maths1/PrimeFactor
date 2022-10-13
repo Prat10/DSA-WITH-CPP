@@ -1,0 +1,28 @@
+Question:Given a number N. Find its unique prime factors in increasing order;
+Example 1:
+
+Input: N = 100
+Output: 2 5
+Explanation: 2 and 5 are the unique prime
+factors of 100.
+
+solution :In 0(n) time complexity
+ bool isPrime(int N){           //in this function is number is Prime or not
+	        for(int i=2;i<N;i++){
+	            if(N%i==0){
+	                return false;
+	            }
+	        }
+	        return true;
+	    }
+	vector<int>AllPrimeFactors(int N) {
+	    // Code here
+	    vector<int> v;
+	   for(int i=2;i<=N;i++){    //here we push the prime number in the vectors to print 
+	           if(N%i==0 && isPrime(i)){ //in this we check a number is already prime or not;
+	           v.push_back(i);
+	           N=N/i;
+	       }
+	   }
+          return v;
+	}
