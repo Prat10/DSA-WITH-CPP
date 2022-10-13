@@ -22,5 +22,20 @@ int gcd(int A, int B)
 	      
 	} 
 
-     Eucliean Algorithm:-
+     Eucliean Algorithm:-This algorithm call a function recursive until the remainder become zero and In each step divisor become dividend,remainder become divisor.
+      once in which divisior zero remainder comes we return that divisor as GCD...
+     
+    Time Complexity: O(log(min(A, B)))
+     Expected Auxiliary Space: O(1)
+     
+    solution:
+      int gcd(int A, int B) 
+	{ 
+	    // code here
+	   if(B==0){  
+	      return A;
+	  }
+	  gcd(B,A%B);
+	      
+	} 
       
