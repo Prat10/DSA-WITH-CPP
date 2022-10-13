@@ -1,0 +1,25 @@
+question: Find all the divisors of N 
+
+
+solution:in this the time complexity of 0(sqrt(n)) better with brute force which causes 0(n) time
+and the auxillary space is 0(1)
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+void printDivisorsOptimal(int n){
+    
+    cout<<"The Divisors of "<<n<<" are:"<<endl;
+	for(int i = 1; i <= sqrt(n); i++)  //in this line the sqrt(n) is root where the loop stop and print all divisors and quotient which are exactly a divisor of number;
+		if(n % i == 0){                
+			cout << i << " ";
+			if(i != n/i) cout << n/i << " ";
+		}
+	
+	cout << "\n";
+}
+
+int main(){
+	printDivisorsOptimal(36);
+        return 0;
+}
