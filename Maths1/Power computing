@@ -1,0 +1,13 @@
+In this I learn for long input can store as short and output to print inshort is known as Modulo arithimatic...
+
+There is some basic and Important formula for this ...
+1.> (a+b)%n = ( a%n + b%n ) % n this for addition 
+2.> (a*b)%n = ( a%n * b%n ) % n for multiplication
+
+For subtraction this become tricky when we doing as same as above formulas 
+what we do here:
+3> (a-b)%n = ((a%n - b%n) + n )% n if after solving the problem acc to above formulas(where we havn't use to add n)
+we get negative which change our answers so for that we had used to add n after (a%b -b%n) to make our answer in 
+positive which is correct....
+
+4>Division is hard for do it later :) 
