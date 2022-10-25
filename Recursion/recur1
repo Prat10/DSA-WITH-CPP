@@ -30,3 +30,4 @@ int Digit_sum(int n){
    cin>>n;
    cout<<Digit_sum(n);
 }
+Time Compleity :- log(n)
