@@ -15,3 +15,18 @@ int sumOfArray(int n,int a[]){
     }
    cout<<sumOfArray(n-1,a);
 }
+
+
+/// Finding the digit sum using the recursion 
+
+
+int Digit_sum(int n){
+    if(n==0) return 0; // base case to terminate the function
+    return Digit_sum(n/10)+n%10;
+ }
+ 
+ int main(){
+   int n;
+   cin>>n;
+   cout<<Digit_sum(n);
+}
