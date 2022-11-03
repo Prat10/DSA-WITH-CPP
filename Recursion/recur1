@@ -47,3 +47,22 @@ using namespace std;
     cin>>n>>p;
     cout<<power(n,p)<<endl;
 }
+
+//Checking where the array is sorted or not check using boolean value.
+
+#include <bits/stdc++.h>
+using namespace std;
+
+bool sorted(int a[],int n){
+    if(n==1){     //base case
+        return true;
+    }
+    bool restSort=sorted(a+1,n-1);
+    return(a[0]<a[1] && restSort);
+}
+int main(){
+    int n;
+    cin>>n;
+    int a[]={1,2,3};
+    cout<<sorted(a,n);
+}
