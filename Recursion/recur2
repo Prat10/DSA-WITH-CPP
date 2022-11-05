@@ -1,0 +1,39 @@
+# Print the number until N
+1. in Decreasing Order
+2. in Increasing Order
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void dec(int n){
+    if(n==0) return;
+    cout<<n<<endl;
+    dec(n-1);
+}
+void inc(int n){
+    if (n==0) return;
+    inc(n-1);
+    cout<<n<<endl;
+}
+
+int main(){
+    int n;
+    cin>>n;
+    dec(n);
+    inc(n);
+}
+Question : -// we have to Print the string in reverse order 
+#include <bits/stdc++.h>
+using namespace std;
+void reverse(string s){
+    if(s.length()==0){
+        return;
+    }
+    string ros=s.substr(1);
+    reverse(ros);
+    cout<<s[0];
+}
+
+int main(){
+    reverse("pratyush");
+}
