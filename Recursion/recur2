@@ -34,6 +34,8 @@ void reverse(string s){
     cout<<s[0];
 }
 
+
+
 int main(){
     reverse("pratyush");
 } 
@@ -60,4 +62,24 @@ void replacePi(string s){
 
 int main (){
    replacePi("pirahulpicase"); 
+}
+
+ # Question:- //Reversing an array from recurison
+#include <bits/stdc++.h>
+#include <stack>
+using namespace std;
+
+void reverse(int i,int a[],int n){
+    if(i>=n/2) return;  //base case to stop the array 
+    swap(a[i],a[n-i-1]); //in built swap function
+    reverse(i+1,a,n);  //recursive call
+}
+int main() {
+int n;
+cin>>n;
+int a[n];
+for(int i=0;i<n;i++) cin>>a[i];
+ reverse(0,a,n); // calling a function in main function
+for(int i=0;i<n;i++) cout<<a[i];
+return 0;
 }
