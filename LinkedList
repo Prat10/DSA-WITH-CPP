@@ -58,7 +58,30 @@ void deleteNode(ListNode* node) {
         node->next=node->next->next;
         delete temp2;
     }
-
+    
+    //x is index that element will delete from the Linked List
+Node* deleteNode(Node *head,int x)
+{
+    //Your code here
+     if(x==1)  //If x is one it means head the element 
+    {
+        head=head->next;
+        return head;
+    }
+    Node *curr=head;  //curr pointer will go every pointer
+    int count=1;      //count for iterating
+    Node * temp=head->next; //temp pointer which hold the deleted elment address
+    while(count<x-1)
+    {
+        count++;
+        temp=temp->next;
+       curr=curr->next;
+    }
+    curr->next=temp->next; //assign the current value
+    delete(temp);    // remove temp address which hold the element to be deleted
+    return head;      // we return the Linked Using head
+    
+}
 // Function to print a linked list
 void printList(Node* head) {
     while (head != NULL) {
