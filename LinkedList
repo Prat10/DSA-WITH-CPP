@@ -49,6 +49,15 @@ void insertAtPosition(Node* &head, int data, int pos) {
     newNode->next = curr->next;
     curr->next = newNode;
 }
+//this function is for deleting any node 
+void deleteNode(ListNode* node) {
+      if(node->next==NULL) delete node;
+      // 4 - 1 - 9 remove 5
+        swap(node->val,node->next->val);
+        ListNode *temp2=node->next;
+        node->next=node->next->next;
+        delete temp2;
+    }
 
 // Function to print a linked list
 void printList(Node* head) {
