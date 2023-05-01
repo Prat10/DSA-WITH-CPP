@@ -1,0 +1,87 @@
+#include <iostream>
+using namespace std;
+
+// Define a struct for the linked list node
+struct Node {
+    int data;
+    Node* next;
+    Node(int x) : data(x), next(NULL) {}
+};
+
+// Function to insert a new node at the beginning of a linked list
+void insertAtBeginning(Node* &head, int data) {
+    Node* newNode = new Node(data);
+    newNode->next = head; //assign a address of head to a newnode
+    head = newNode;      //assign head to newnode 
+                         //now newnode is the head
+}
+
+// Function to insert a new node at the end of a linked list
+void insertAtEnd(Node* &head, int data) { //head address,newdata
+    Node* newNode = new Node(data); //newnode object
+    if (head == NULL) {  //head is null 
+        head = newNode; //than assign head to newnode 
+        return;     //return
+    }                  //if linked list have already a elements
+    Node* curr = head; //current node head
+    while (curr->next != NULL) { //if it is not a last node(tail node) 
+        curr = curr->next;//go for further nodes
+    }
+    curr->next = newNode; //once it at last node now we assign                         //newnode to current added to a list
+}
+
+// Function to insert a new node at a given position in a linked list
+void insertAtPosition(Node* &head, int data, int pos) {
+    Node* newNode = new Node(data);
+    if (pos == 1) {  //if pos is 1 than it implement to atbegin 
+       //function 
+        newNode->next = head;//assign the head address to newnode
+        head = newNode; //make the head to newnode
+        return;  //return the node
+    }
+    Node* curr = head;
+    for (int i = 1; i < pos-1 && curr != NULL; i++) {
+        curr = curr->next;
+    }
+    if (curr == NULL) {
+        return;
+    }
+    newNode->next = curr->next;
+    curr->next = newNode;
+}
+
+// Function to print a linked list
+void printList(Node* head) {
+    while (head != NULL) {
+        cout << head->data << " ";
+        head = head->next;
+    }
+    cout << endl;
+}
+
+int main() {
+    Node* head = NULL;
+
+    // Insert at the beginning
+    insertAtBeginning(head, 1);
+    insertAtBeginning(head, 2);
+    insertAtBeginning(head, 3);
+    cout << "After inserting at the beginning: ";
+    printList(head);
+
+    // Insert at the end
+    insertAtEnd(head, 4);
+    insertAtEnd(head, 5);
+    insertAtEnd(head, 6);
+    cout << "After inserting at the end: ";
+    printList(head);
+
+    // Insert at a given position
+    insertAtPosition(head, 7, 4);
+    // insertAtPosition(head, 8, 2);
+    // insertAtPosition(head, 9, 1);
+    // cout << "After inserting at a given position: ";
+    printList(head);
+
+    return 0;
+}
