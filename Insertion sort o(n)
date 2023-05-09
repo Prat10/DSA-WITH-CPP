@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+//Insertion sort is algorithm where the given array is divided in two part first is sorted subarray and unsorted and
+//sorted array are in left intial it will zero index consider as (Sorted subarray) and in the index 1 is current element of (unsorted subarray) 
+vector<int> insertsort(int n,vector<int> &v){ 
+   for(int i=1;i<n;i++){
+      int element=v[i]; //maintain the curr element
+      int j=i-1;  //sorted subarray element j 
+     while(j>=0&&v[j]>element){ //we check this condition
+       v[j+1]=v[j];//assign current with last element of sort
+       j--; //it decrement to check each element in the left of sorted array is smaller or not with the current
+      }
+     v[j+1]=element;//after while loop break or if the while loop not satisfy the conditionn then also we run this line to assign the value with its corrct position
+   }
+  return v;
+}
+int main(){
+  int n;
+  cout<<"Enter the Size of array:"<<endl;
+  cin>>n;
+  cout<<"Enter the elements that can be store in array:"<<endl;
+  vector<int> v(n);
+  for(int i=0;i<n;i++){
+    cin>>v[i];
+  }
+  
+ insertsort(n,v);
+  cout<<"After sorting the elements are"<<endl;
+  for(int i=0;i<n;i++){
+    cout<<v[i]<<" "; 
+  }
+}
